@@ -1,0 +1,22 @@
+{
+  "name": "@sizhi/search-feed",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon -x ts-node  src/index.ts"
+  },
+  "author": "nielinjie <nielinjie@outlook.com>",
+  "license": "ISC",
+  "dependencies": {
+    "@quick-qui/data-provider": "github:quickqui/data-provider"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.0",
+    "@types/node": "^11.13.19",
+    "nodemon": "1.18.9",
+    "ts-node": "8.0.2",
+    "typescript": "3.3.3"
+  }
+}

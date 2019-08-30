@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target":"esnext",
+    "sourceMap": true,
+    "outDir": "dist",
+    "lib": ["esnext", "dom"],
+    "allowJs": true,
+    "noImplicitAny":false,
+    "moduleResolution": "node"
+  }
+}
