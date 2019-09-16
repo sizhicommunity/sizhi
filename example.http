@@ -1,0 +1,20 @@
+
+###
+
+POST http://localhost:1111/feeds HTTP/1.1
+content-type: application/json
+
+{
+    "type":"GET_LIST",
+    "resource":"Feed",
+    "params":{
+        "pagination": { "page": 1, "perPage": 50 },
+        "sort": { "field": "id", "order": "ASC" },
+        "filter": {  }
+    }
+}
+
+###
+
+
+GET http://localhost:5000/model-server/model

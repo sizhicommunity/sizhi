@@ -1,0 +1,5 @@
+functions:
+  - name: ListFeeds
+    base: 
+      resource: RSSFeed
+      function: list

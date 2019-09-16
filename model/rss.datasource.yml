@@ -1,0 +1,4 @@
+datasources: 
+  - resource:
+      - RSSFeed
+    dataprovider: RssDataprovider

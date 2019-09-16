@@ -10,7 +10,14 @@
   "author": "nielinjie <nielinjie@outlook.com>",
   "license": "ISC",
   "dependencies": {
-    "@quick-qui/data-provider": "github:quickqui/data-provider"
+    "@quick-qui/data-provider": "github:quickqui/data-provider",
+    "@types/lodash": "^4.14.138",
+    "@types/ramda": "^0.26.21",
+    "axios": "^0.19.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "lodash": "^4.17.15",
+    "ramda": "^0.26.1"
   },
   "devDependencies": {
     "@types/express": "^4.17.0",

@@ -1,9 +1,9 @@
 export const env: {
-    name: string, dataUrl: string
+    name: string, rsshubUrl: string
 } = (() => {
     if (process.env.ENV === "dev_local")
-        return { name: 'dev_local', dataUrl: 'http://localhost:4466' }
+        return { name: 'dev_local', rsshubUrl: 'http://localhost:1200' }
     if (process.env.ENV === "dev_docker")
-        return { name: 'dev_docker', dataUrl: 'http://prisma:4466' }
+        return { name: 'dev_docker', rsshubUrl: 'http://rsshub:1200' }
     else throw new Error('unknown environment');
 })()
