@@ -2,3 +2,4 @@ datasources:
   - resource:
       - RSSFeed
     dataprovider: /RssDataprovider
+    end: back

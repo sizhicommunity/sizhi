@@ -6,6 +6,10 @@
     "lib": ["esnext", "dom"],
     "allowJs": true,
     "noImplicitAny":false,
-    "moduleResolution": "node"
-  }
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports":true,
+    "module":"CommonJS",
+    "declaration": true
+  },
+  "include": ["src/**/*"]
 }
