@@ -1,7 +1,7 @@
 
 import { FeedPath, Param } from "../content/Rss";
 import * as ch from "cheerio";
-
+export const RSSHUB = "rsshub";
 export function mapToPaths(items: any[]) {
   return items.map((item) => {
     const $ = ch.load(item.content);
@@ -11,7 +11,7 @@ export function mapToPaths(items: any[]) {
 
     return {
       id: item.guid,
-      url: `rsshub:${item.guid}`,
+      url: `${RSSHUB}:${item.guid}`,
       title: item.title,
       params: parsePara(item.guid, pali),
     } as FeedPath;

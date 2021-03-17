@@ -1,6 +1,7 @@
 import { ContentItem, ContentFeed } from ".";
 import * as RssParser from "rss-parser";
 import * as dayjs from "dayjs";
+import { FeedInfo } from "../define/SizhiDefine";
 export interface FeedPath {
   id: string;
   url: string;
@@ -14,7 +15,8 @@ export interface Param {
   memo: string;
 }
 export interface RssContentItem extends ContentItem {}
-export async function parseFromString(str: string): Promise<RssFeed> {
+
+export async function parseFromString(str: string,feedInfo:FeedInfo): Promise<RssFeed> {
   const parser = new RssParser();
   const feed = await parser.parseString(str);
   return {
@@ -24,6 +26,7 @@ export async function parseFromString(str: string): Promise<RssFeed> {
       id: item.guid,
       title: item.title,
       body: item.content,
+      feedInfo: feedInfo
     })),
   } as RssFeed;
 }

@@ -1,12 +1,18 @@
 export default [
   {
     id: "nielinjie",
-    url: "sizhi:nielinejie",
-    username: "nielinjie",
+    url: "sizhi:nielinjie",
+    page: "www.nietongxue.xyz",
     publish: [
       {
-        id: "zhihu",
-        url: "rsshub:/zhihu/posts/people/nielinjie",
+        category: "work",
+        objects: [{ url: "rsshub:/zhihu/posts/people/nielinjie" }],
+      },
+    ],
+    follow: [
+      {
+        category: "work",
+        objects: [{ url: "rsshub:/zhihu/posts/people/nielinjie" }],
       },
     ],
   },
