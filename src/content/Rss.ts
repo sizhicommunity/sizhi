@@ -1,6 +1,6 @@
 import { ContentItem, ContentFeed } from ".";
-import * as RssParser from "rss-parser";
-import * as dayjs from "dayjs";
+import RssParser from "rss-parser";
+import dayjs from "dayjs";
 import { FeedInfo } from "../define/SizhiDefine";
 export interface FeedPath {
   id: string;

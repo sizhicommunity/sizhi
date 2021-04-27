@@ -1,0 +1,18 @@
+infos:
+  - name: define
+    type: resource
+    resources: [Defines]
+    scope: domain
+    annotations:
+      implementation:
+        at: back
+        source: fake
+        fakeData: "resolve:define/mockData.js"
+  - name: addDefine
+    type: resource
+    resources: [AddDefine]
+    scope: session
+    annotations:
+      implementation:
+        at: back
+        source: 'resolve:define/addDefine'

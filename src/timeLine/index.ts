@@ -1,6 +1,6 @@
-import { StringKeyObject } from "../util";
-import * as _ from "lodash";
-import * as EventEmitter from "events";
+import { Meta } from "../util";
+import  _ from "lodash";
+import EventEmitter from "events";
 export const ITEMS_ADDED = "itemsAdd";
 export class TimeLine extends EventEmitter {
   private items: TimeLineItem[] = [];
@@ -9,17 +9,20 @@ export class TimeLine extends EventEmitter {
   }
   public add(items: TimeLineItem[]): void {
     if (items.length > 0) {
-      this.items = [...this.items, ...items];
+      this.items = _([...this.items, ...items])
+        .uniqBy((i) => i.id)
+        .sortBy("date")
+        .value();
       this.emit(ITEMS_ADDED, this);
     }
   }
   public getItems(): TimeLineItem[] {
-    return _(this.items).sortBy("date").value();
+    return this.items;
   }
 }
 export interface TimeLineItem {
   date: Date;
   title: string;
   id: string;
-  meta: StringKeyObject<string>;
+  meta: Meta;
 }

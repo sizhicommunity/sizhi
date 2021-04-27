@@ -1,0 +1,13 @@
+entities:
+  - name: ContentItems
+    properties:
+      - name: url
+        type: string
+      - name: title
+        type: string
+  - name: Feeds
+    properties:
+      - name: url
+        type: string
+      - name: memo
+        type: string

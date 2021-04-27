@@ -1,14 +1,17 @@
-import {default as repository} from './Repository'
-import { injectFeedInfo } from './SizhiDefine'
+import  repository from '../Repository'
+import { injectFeedInfo, nominalCategorized, nominalDefine } from '../SizhiDefine'
+
+
 test('simple repository',()=>{
     expect(repository).toBeDefined()
-    expect(repository.defines).toEqual(
+    const defines = repository.defines.map(nominalDefine);
+    expect(defines).toEqual(
         expect.arrayContaining([
             expect.objectContaining({ 
                 id: 'nielinjie',
                 publish: expect.arrayContaining([
                     expect.objectContaining({
-                        category: 'work'
+                        category: 'mock'
                     })
                 ])
             })
@@ -18,7 +21,8 @@ test('simple repository',()=>{
 
 test('injected',()=>{
      expect(repository).toBeDefined();
-     const define= repository.defines[0]
+     const defines = repository.defines.map(nominalDefine);
+     const define= defines[0]
      const injected= injectFeedInfo(define)
      expect(injected).toEqual(
        expect.objectContaining({

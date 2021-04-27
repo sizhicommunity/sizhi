@@ -1,4 +1,3 @@
-import { StringKeyObject } from "../util";
 import { FeedInfo } from "../define/SizhiDefine";
 
 export interface ContentItem {

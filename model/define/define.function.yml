@@ -1,0 +1,14 @@
+functions:
+  - name: defineList
+    extend: 'functions/list'
+    resource: Defines
+    annotations:
+      page:
+        menuPath: Defines/List
+        icon: List
+  - name: addUrlCommand 
+    extend: 'functions/command'
+    resource: AddUrlRequest
+    annotations:
+      page:
+        menuPath: Defines/Add

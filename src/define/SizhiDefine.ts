@@ -1,5 +1,7 @@
 import { StringKeyObject, CategorizedObjects } from "../util";
-import { Source, HttpSource } from "../source/Source";
+import { Source, HttpSource, StringSource } from "../source/Source";
+import * as uri from "uri-js";
+import { RSSHUB } from "../rssHub";
 
 export interface SizhiDefine {
   id: string;
@@ -54,10 +56,36 @@ export interface FeedInfo {
   defineUrl: string;
   feedPath: string;
 }
-// export function getSourcesFromDefine(define: SizhiDefine): Source[] {
-//   return define.publish
-//     .map((category) =>
-//       category.objects.map((feed) => new HttpSource(feed.url, feed.info))
-//     )
-//     .flat();
-// }
+export function nominalCategorized(
+  origin: StringKeyObject<Array<string>>
+): CategorizedObjects<FeedDefine>[] {
+  return Object.keys(origin).map((key) => ({
+    category: key,
+    objects: origin[key].map((urlString) => ({ url: urlString })),
+  }));
+}
+export function nominalDefine(origin: any): SizhiDefine {
+  try {
+    return {
+      ...origin,
+      publish: nominalCategorized(origin.publish),
+      follow: (origin.follow && nominalCategorized(origin.follow)) ?? [],
+    };
+  } catch (e) {
+    throw new Error("bad define format - " + e.message);
+  }
+}
+export function getSourcesFromDefine(define: SizhiDefine): Source[] {
+  return [...define.publish, ...(define.follow ?? [])]
+    .map((category) => category.objects.map(feedToSource))
+    .flat();
+}
+export function feedToSource(feed: FeedDefine): Source {
+  const url = uri.parse(feed.url);
+  if (url.scheme === RSSHUB) return new HttpSource(feed.url, feed.info!!);
+  if (url.scheme === "http" || url.scheme === "https")
+    return new HttpSource(feed.url, feed.info!!);
+  if (url.scheme === "mock")
+    return new StringSource(require("../content/mock").default);
+}
+

@@ -1,0 +1,17 @@
+entities:
+  - name: Defines
+    properties:
+      - name: url
+        type: string
+      - name: body
+        type: string
+  - name: AddUrlRequest
+    properties:
+      - name: url
+        type: string
+        constraints:
+          - required
+  - name: AddUrlResponse
+    properties:
+      - name: message
+        type: string

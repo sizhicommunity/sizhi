@@ -1,0 +1,25 @@
+infos:
+  # - name: content
+  #   type: resource
+  #   resources: [ContentItem]
+  #   scope: domain
+  #   annotations:
+  #     implementation:
+  #       at: back
+  #       source: "resolve:"
+  # - name: contentAdded
+  #   type: event
+  #   events: [contentAdded]
+  #   scope: domain
+  #   annotations:
+  #     implementation:
+  #       at: back
+  #       source: "resolve:"
+  # - name: contentItemSelected
+  #   type: event
+  #   events: [contentItemSelected]
+  #   scope: session
+  #   annotations:
+  #     implementation:
+  #       at: front
+

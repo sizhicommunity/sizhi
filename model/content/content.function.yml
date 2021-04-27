@@ -1,0 +1,17 @@
+functions:
+  - name: contentItemList
+    extend: 'functions/list'
+    resource: ContentItem
+    parameters:
+      out: 
+        selectedChanged: ${info:contentItemSelected}
+    annotations:
+      page:
+        menuPath: Items/List
+        icon: List
+      
+  - name: contentItemShow
+    extend: 'functions/show'
+    resource: ContentItem
+    parameters:
+      id: ${info:contentItemSelected/id}
