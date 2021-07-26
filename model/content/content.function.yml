@@ -1,17 +1,12 @@
 functions:
   - name: contentItemList
-    extend: 'functions/list'
-    resource: ContentItem
+    extend: "functions/list"
+    resource: contentItems
     parameters:
-      out: 
+      out:
         selectedChanged: ${info:contentItemSelected}
-    annotations:
-      page:
-        menuPath: Items/List
-        icon: List
-      
   - name: contentItemShow
-    extend: 'functions/show'
-    resource: ContentItem
+    extend: "functions/show"
+    resource: contentItems
     parameters:
-      id: ${info:contentItemSelected/id}
+      id: ${info:contentItemSelected/payload/selectedId}

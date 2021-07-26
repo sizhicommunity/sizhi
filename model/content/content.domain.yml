@@ -1,13 +1,11 @@
 entities:
-  - name: ContentItems
+  - name: ContentItem
     properties:
       - name: url
         type: string
       - name: title
         type: string
-  - name: Feeds
-    properties:
-      - name: url
+      - name: body
         type: string
-      - name: memo
-        type: string
+      - name: date
+        type: Date

@@ -1,9 +1,9 @@
-import { sSProxyOptions, getStringFromUrl } from "./get";
-import { fromString } from "./define/FromString";
-import { getSourcesFromDefine } from "./define/SizhiDefine";
-import { TimeLine, ITEMS_ADDED } from "./timeLine";
-import { Engine } from "./timeLine/Engine";
-import { log } from "./util";
+import { sSProxyOptions, getStringFromUrl } from "@sizhi/domain";
+import { fromString } from "@sizhi/domain";
+import { getSourcesFromDefine } from "@sizhi/domain";
+import { TimeLine, ITEMS_ADDED } from "@sizhi/domain";
+import { Engine } from "@sizhi/domain";
+import { log } from "@sizhi/domain";
 require("dotenv").config();
 
 (async () => {

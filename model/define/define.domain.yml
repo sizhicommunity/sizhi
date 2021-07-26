@@ -1,17 +1,18 @@
 entities:
-  - name: Defines
+  - name: Define
     properties:
       - name: url
         type: string
-      - name: body
+      - name: name
         type: string
-  - name: AddUrlRequest
+      - name: valid
+        type: boolean
+      - name: json
+        type: string
+  - name: AddDefine
     properties:
       - name: url
         type: string
         constraints:
           - required
-  - name: AddUrlResponse
-    properties:
-      - name: message
-        type: string
+  

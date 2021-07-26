@@ -1,10 +1,10 @@
 pages:
   - name: contentItemMasterDetail
-    menuPath: Content/All
+    menuPath: Contents
     layout:
       grid: 2
     places:
       - function: contentItemList
-        presentation: default
+        presentation: itemList
       - function: contentItemShow
-        presentation: default
+        presentation: itemDetail
