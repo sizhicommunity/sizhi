@@ -6,6 +6,7 @@ test("rss from xml", async () => {
   const feed = await parseFromString(rssXmlString, {
     defineUrl: "mock",
     feedPath: "mock",
+    url: 'mock'
   });
   expect(feed).toBeDefined();
   expect(feed.items.length).not.toEqual(0);

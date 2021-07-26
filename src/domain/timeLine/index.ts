@@ -1,6 +1,7 @@
 import { Meta } from "../util";
 import  _ from "lodash";
 import EventEmitter from "events";
+export * from  './Engine'
 export const ITEMS_ADDED = "itemsAdd";
 export class TimeLine extends EventEmitter {
   private items: TimeLineItem[] = [];

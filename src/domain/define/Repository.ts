@@ -73,7 +73,7 @@ export class Repository {
   
 }
 
-export default _repository || initRepository();
+export const repository: Repository =  _repository || initRepository();
 
 function initRepository() {
   // const defines = require("./test/mock").default;
