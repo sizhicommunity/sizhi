@@ -32,7 +32,7 @@
 
 #### 上文提到的“客户端”在哪里？
 
-有一个示范性的客户端在开发中 ，完成度不高。https://github.com/sizhicommunity/search-feed 。 
+有一个示范性的客户端在开发中 ，完成度不高。https://github.com/sizhicommunity/client 。 
 
 鼓励社区开发更多更好的客户端。
 
