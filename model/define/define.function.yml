@@ -1,0 +1,26 @@
+functions:
+  - name: defineList
+    extend: "functions/list"
+    resource: defines
+    links: 
+      - label: Delete
+        type: entity
+        page: defineDelete
+    parameters:
+      version: ${info:defineListChanged/payload/version}
+      out:
+        selectedChanged: ${info:defineSelected}
+  - name: defineDetail
+    extend: "functions/show"
+    resource: defines
+    parameters:
+      id: ${info:defineSelected/payload/selectedId}
+  - name: defineDelete
+    extend: "functions/edit"
+    resource: defines
+  - name: addUrlCommand
+    extend: "functions/command"
+    resource: addDefine
+    annotations:
+      page:
+        menuPath: Defines/Add

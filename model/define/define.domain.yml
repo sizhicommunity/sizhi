@@ -1,0 +1,18 @@
+entities:
+  - name: Define
+    properties:
+      - name: url
+        type: string
+      - name: name
+        type: string
+      - name: valid
+        type: boolean
+      - name: json
+        type: string
+  - name: AddDefine
+    properties:
+      - name: url
+        type: string
+        constraints:
+          - required
+  

@@ -1,0 +1,10 @@
+infos:
+  - name: Logs
+    scope: session
+    type: resource
+    resources: [logs]
+    entities: [Log]
+    annotations: 
+      implementation:
+        at: back
+        source: "resolve:app/logDp"

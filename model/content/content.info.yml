@@ -1,0 +1,25 @@
+infos:
+  - name: content
+    type: resource
+    resources: [contentItems]
+    entities: [ContentItem]
+    scope: domain
+    annotations:
+      implementation:
+        at: back
+        source: "resolve:app/contentDp"
+  # - name: contentAdded
+  #   type: event
+  #   events: [contentAdded]
+  #   scope: domain
+  #   annotations:
+  #     implementation:
+  #       at: back
+  #       source: "resolve:"
+  - name: contentItemSelected
+    type: event
+    scope: session
+    annotations:
+      implementation:
+        at: front
+

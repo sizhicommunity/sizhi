@@ -1,0 +1,9 @@
+implementations:
+  - name: npm-back
+    extend: "implementations/back-npm"
+  - name: npm-web-front
+    extend: "implementations/web-front-npm"
+  - name: sizhi-flat-npm-launcher
+    extend: "implementations/flatNpm-launcher"
+    parameters:
+      launch: ["npm-back", "npm-web-front"]

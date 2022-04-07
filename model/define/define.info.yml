@@ -1,0 +1,26 @@
+infos:
+  - name: define
+    type: resource
+    resources: [defines]
+    entities: [Define]
+    scope: domain
+    annotations:
+      implementation:
+        at: back
+        source: "resolve:app/defineDp"
+        # fakeData: "resolve:define/mockData.js"
+  - name: addDefine
+    type: resource
+    resources: [addDefine]
+    entities: [AddDefine]
+    scope: session
+    annotations:
+      implementation:
+        at: back
+        source: "resolve:app/defineDp"
+  - name: defineSelected
+    type: event
+    scope: session
+  - name: defineListChanged
+    type: event
+    scope: domain

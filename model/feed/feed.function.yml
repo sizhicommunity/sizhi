@@ -1,0 +1,12 @@
+functions:
+  - name: feedList
+    resource: feeds
+    extend: "functions/list"
+    parameters:
+      out:
+        selectedChanged: ${info:feedSelected}
+  - name: feedDetail
+    extend: "functions/show"
+    resource: feeds
+    parameters:
+      id: ${info:feedSelected/payload/selectedId}

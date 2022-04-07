@@ -1,0 +1,11 @@
+entities:
+  - name: ContentItem
+    properties:
+      - name: url
+        type: string
+      - name: title
+        type: string
+      - name: body
+        type: string
+      - name: date
+        type: Date
