@@ -12,9 +12,6 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "declaration": true,
-    "plugins": [
-      { "transform": "typescript-is/lib/transform-inline/transformer" }
-    ]
   },
   "include": ["./src/**/*"]
 }

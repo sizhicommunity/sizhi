@@ -5,10 +5,11 @@ import { RSSHUB } from "../rssHub";
 import { getStringFromUrl, defaultProxyOptions, sSProxyOptions } from "../get";
 import { fromString } from "./FromString";
 
+import * as jsonHash from 'json-hash';
+
 export interface SizhiDefine {
   id: string;
   version: string;
-  protocol: string;
   name: string;
   url: string;
   hash: string;
@@ -109,7 +110,6 @@ export async function loadFromUrl(url: string): Promise<SizhiDefine> {
   const define = fromString(defineString);
   log.debug("define", define);
   define.id = !define.hash || define.hash === "" ? define.url : define.hash;
-  //TODO validate
   const valid = validate(url, define);
   define.valid = valid;
   return define;
@@ -124,4 +124,10 @@ export function getFeeds(define: SizhiDefine): FeedDefine[] {
   return [...define.publish, ...(define.follow ?? [])]
     .map((category) => category.objects)
     .flat();
+}
+export function hash(define: SizhiDefine): string {
+  const cloned = {...define};
+  delete cloned.hash
+  delete cloned.valid
+  return jsonHash.digest(cloned);
 }

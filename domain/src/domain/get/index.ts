@@ -10,7 +10,7 @@ export const sSProxyOptions = 'yes'//`socks5://127.0.0.1:1086`;
 export let defaultProxyOptions = {
   proxy: {
     host: "localhost",
-    port: 1087,
+    port: 8118,
   },
 };
 export async function getStringFromUrl(
