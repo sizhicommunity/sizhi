@@ -9,7 +9,7 @@ import * as tunnel from "tunnel";
 export const sSProxyOptions = 'yes'//`socks5://127.0.0.1:1086`;
 export let defaultProxyOptions = {
   proxy: {
-    host: "localhost",
+    host: "127.0.0.1",
     port: 8118,
   },
 };
