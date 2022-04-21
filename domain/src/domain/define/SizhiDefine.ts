@@ -109,7 +109,7 @@ export async function loadFromUrl(url: string): Promise<SizhiDefine> {
   log.debug("defineString", defineString);
   const define = fromString(defineString);
   log.debug("define", define);
-  define.id = !define.hash || define.hash === "" ? define.url : define.hash;
+  define.id = (!define.hash || define.hash === "") ? define.url : define.hash;
   const valid = validate(url, define);
   define.valid = valid;
   return define;

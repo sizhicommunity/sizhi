@@ -21,6 +21,10 @@ export async function getStringFromUrl(
     log.info('in rsshub')
     return rsshubGet(url, proxyOptions);
   }
+  if(url.startsWith('mock:')){
+    let re = require(url.substring(5))
+    return re?.default
+  }
   try {
     if (proxyOptions) {
       log.info(proxyOptions);

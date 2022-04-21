@@ -2,6 +2,7 @@ import { Repository } from "./Repository";
 
 export * from "./FromString";
 export * from "./Repository";
+export * from './Runner';
 export * from "./SizhiDefine";
 let _repository: Repository;
 
