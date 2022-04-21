@@ -1,9 +1,10 @@
 import { EventEmitter } from "events";
+import _ from "lodash";
 import { TimeLine } from "../timeLine";
 import { Engine } from "../timeLine/Engine";
 import { log } from "../util";
 import { Repository } from "./Repository";
-import { getSourcesFromDefine } from "./SizhiDefine";
+import { getSourcesFromDefine, SizhiDefine } from "./SizhiDefine";
 export class Runner {
   eventBus = new EventEmitter();
   lifeMinute = 1;
@@ -23,11 +24,10 @@ export class Runner {
       if (this.lifeMinute % timerCount === 0) {
         log.debug("interval fired, update feeds");
         this.rep.log("interval fired", "info");
-        const defines = (this.rep.defines.value() ?? []).concat(this.rep.getMyDefine());
+        const defines:SizhiDefine[] = _.compact((this.rep.defines.value() ?? []).concat(this.rep.getMyDefine())) as SizhiDefine[];
         log.debug("defines", defines);
         const sources = defines.map((def) => getSourcesFromDefine(def)).flat();
         this.feedInfos = sources.map((s)=>s.getFeedInfo())
-        log.info("feedInfos", this.feedInfos);
         Promise.all(
           sources.map(async (source) => {
             try {
@@ -36,10 +36,11 @@ export class Runner {
               log.debug(e);
               log.warn(
                 "error processing source",
-                JSON.stringify(source.feedInfo)
+                JSON.stringify(source.getFeedInfo())
               );
               this.rep.log(
-                "error processing source - " + JSON.stringify(source.feedInfo),
+                "error processing source - " +
+                  JSON.stringify(source.getFeedInfo()),
                 "warn"
               );
             }
