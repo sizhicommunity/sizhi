@@ -6,9 +6,7 @@ export let app = express();
 services.app = app;
 app.use(express.json());
 // Without middleware
-app.get("/", function (req, res) {
-  res.json({ hello: "world" }).status(200).send();
-});
+
 
 app.get("/timeline/items", function (req, res) {
   res.json({items:services.runner.timeLine.getItems()}).status(200).send();

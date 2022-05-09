@@ -1,9 +1,0 @@
-presentations:
-  - name: defineDetail
-    propertyRules:
-      - property: json
-        rules: ["resolve:app/view/JsonField"]
-  - name: defineList
-    propertyRules:
-      - property: json
-        rules: ["hidden"]

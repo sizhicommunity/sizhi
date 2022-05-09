@@ -1,8 +1,0 @@
-functions:
-  - name: logList
-    extend: "functions/list"
-    resource: logs
-    annotations:
-      page: 
-        menuPath: Logs
-      presentation: logList

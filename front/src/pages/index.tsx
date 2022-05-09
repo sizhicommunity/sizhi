@@ -1,9 +1,14 @@
-import styles from './index.less';
+import { PageHeader, Row, Form, Input } from 'antd';
+import { Typography } from 'antd';
 
-export default function IndexPage() {
+const { Title } = Typography;
+import React from 'react';
+export default function home() {
   return (
-    <div>
-      <h1 className={styles.title}>Page index</h1>
-    </div>
+    <PageHeader title="首页">
+      <Row>
+        <Title>这里是思之社区</Title>
+      </Row>
+    </PageHeader>
   );
 }

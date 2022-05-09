@@ -1,9 +1,0 @@
-entities:
-  - name: Feed
-    properties:
-      - name: url
-        type: string
-      - name: path
-        type: string
-      - name: defineId
-        type: string

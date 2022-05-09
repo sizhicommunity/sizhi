@@ -1,9 +1,0 @@
-entities:
-  - name: Log
-    properties:
-      - name: message
-        type: string
-      - name: level
-        type: string
-      - name: time
-        type: Date

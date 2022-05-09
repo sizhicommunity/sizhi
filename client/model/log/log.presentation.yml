@@ -1,8 +1,0 @@
-presentations:
-  - name: logList
-    propertyRules:
-      - property: id
-        rules: ["hidden"]
-    uiElementRules:
-      exporter: false
-      checkbox: false
