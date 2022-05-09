@@ -1,15 +1,17 @@
 import express from "express";
 import { Repository, Runner } from "@sizhi/domain";
-export let services: { app?: express.Application; repository?: Repository ,runner?:Runner} =
-  {};
+export let services: {
+  app?: express.Application;
+  repository?: Repository;
+  runner?: Runner;
+} = {};
 export let app = express();
 services.app = app;
 app.use(express.json());
-// Without middleware
 
 
 app.get("/timeline/items", function (req, res) {
-  res.json({items:services.runner.timeLine.getItems()}).status(200).send();
+  res.json({ items: services.runner.timeLine.getItems() }).status(200).send();
 });
 app.get("/feedInfos", function (req, res) {
   res.json({ feedInfos: services.runner.feedInfos }).status(200).send();
