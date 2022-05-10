@@ -1,3 +1,4 @@
+import { handleDate } from '@/components/date';
 import { useRequest } from 'ahooks';
 import { PageHeader, Table } from 'antd';
 
@@ -13,6 +14,9 @@ const columns = [
     title: 'TimeStamp',
     dataIndex: 'time',
     key: 'time',
+    render: (time:string)=> {
+        return <>{handleDate(Date.parse(time))}</>;
+    }
   },
   {
     title: 'Message',
@@ -32,7 +36,7 @@ export default function logsPage() {
   return (
     <>
       <PageHeader title="日志" subTitle="显示运行日志" />
-      <Table columns={columns} dataSource={data} />;
+      <Table columns={columns} dataSource={data} size="small" />;
     </>
   );
 }

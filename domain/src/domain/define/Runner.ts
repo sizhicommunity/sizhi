@@ -1,5 +1,6 @@
 import { EventEmitter } from "events";
 import _ from "lodash";
+import { Source } from "../source/Source";
 import { TimeLine } from "../timeLine";
 import { Engine } from "../timeLine/Engine";
 import { log } from "../util";
@@ -11,23 +12,22 @@ export class Runner {
   timeLine = new TimeLine();
   engine = new Engine(this.timeLine);
   rep = undefined;
-  feedInfos : FeedInfo[]= [];
-  constructor(repository:Repository,timerCount:number=60) {
+  feedInfos: FeedInfo[] = [];
+  constructor(repository: Repository, timerCount: number = 60) {
     this.rep = repository;
-    setInterval(
-      () => this.eventBus.emit("timer", { date: new Date() }),
-      1000
-    );
+    setInterval(() => this.eventBus.emit("timer", { date: new Date() }), 1000);
     this.eventBus.on("timer", (event) => {
       log.debug("timer fired", event);
       this.lifeMinute += 1;
       if (this.lifeMinute % timerCount === 0) {
         log.debug("interval fired, update feeds");
-        this.rep.log("interval fired", "info");
-        const defines:SizhiDefine[] = _.compact((this.rep.defines.value() ?? []).concat(this.rep.getMyDefine())) as SizhiDefine[];
+        this.rep.log("interval fired", "debug");
+        const defines: SizhiDefine[] = _.compact(
+          (this.rep.defines.value() ?? []).concat(this.rep.getMyDefine())
+        ) as SizhiDefine[];
         log.debug("defines", defines);
-        const sources = defines.map((def) => getSourcesFromDefine(def)).flat();
-        this.feedInfos = sources.map((s)=>s.getFeedInfo())
+        const sources = _.compact(defines.map((def) => getSourcesFromDefine(def)).flat()) as Source[];
+        this.feedInfos = sources.map((s) => s.getFeedInfo());
         Promise.all(
           sources.map(async (source) => {
             try {

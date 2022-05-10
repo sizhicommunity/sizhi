@@ -10,6 +10,11 @@ import { feeds } from '../services/service';
  */
 const columns = [
   {
+    title: 'Url',
+    dataIndex: 'url',
+    key: 'url',
+  },
+  {
     title: 'Define',
     dataIndex: 'defineUrl',
     key: 'defineUrl',
@@ -19,12 +24,6 @@ const columns = [
     dataIndex: 'feedPath',
     key: 'feedPath',
   },
-  {
-    title: 'Url',
-    dataIndex: 'url',
-    key: 'url',
-  },
- 
 ];
 
 export default function feedsPage() {

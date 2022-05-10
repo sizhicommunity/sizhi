@@ -9,7 +9,7 @@ import * as jsonHash from 'json-hash';
 
 export interface SizhiDefine {
   id: string;
-  version: string;
+  protocol: string;
   name: string;
   url: string;
   hash: string;

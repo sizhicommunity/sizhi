@@ -7,7 +7,7 @@ export default function SimpleJson({ src }:any) {
       src={src}
       name={false}
       collapsed = {1}
-      theme="rjvdefault"
+      theme="rjv-default"
       enableClipboard={false}
       displayDataTypes={false}
       quotesOnKeys={false}
