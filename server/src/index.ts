@@ -25,8 +25,11 @@ app.get("/defines", function (req, res) {
 app.post("/defineUrls", function (req, res) {});
 
 app.get("/myDefine", function (req, res) {
-  res.json({ myDefine: services.repository.getMyDefine() }).status(200).send();
+  let myDefine=  services.repository.getMyDefine();
+  
+  res.json({ myDefine}).status(200).send();
 });
+
 app.put("/myDefineUrl", async function (req, res) {
   await services.repository.setMyDefineUrl(req.body.myDefineUrl);
   res.status(202).send();

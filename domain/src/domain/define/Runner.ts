@@ -4,14 +4,14 @@ import { TimeLine } from "../timeLine";
 import { Engine } from "../timeLine/Engine";
 import { log } from "../util";
 import { Repository } from "./Repository";
-import { getSourcesFromDefine, SizhiDefine } from "./SizhiDefine";
+import { FeedInfo, getSourcesFromDefine, SizhiDefine } from "./SizhiDefine";
 export class Runner {
   eventBus = new EventEmitter();
   lifeMinute = 1;
   timeLine = new TimeLine();
   engine = new Engine(this.timeLine);
   rep = undefined;
-  feedInfos = [];
+  feedInfos : FeedInfo[]= [];
   constructor(repository:Repository,timerCount:number=60) {
     this.rep = repository;
     setInterval(

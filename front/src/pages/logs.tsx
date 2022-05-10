@@ -2,7 +2,7 @@ import { useRequest } from 'ahooks';
 import { PageHeader, Table } from 'antd';
 
 import { Tag, Space } from 'antd';
-import {logs} from './service'
+import { logs } from '../services/service';
 const columns = [
   {
     title: 'Id',
@@ -20,18 +20,14 @@ const columns = [
     key: 'message',
   },
   {
-      title:'Level',
-      dataIndex: 'level',
-      key: 'level',
+    title: 'Level',
+    dataIndex: 'level',
+    key: 'level',
   },
- 
 ];
 
-
-
-
 export default function logsPage() {
-    const { data, error, loading } = useRequest(logs);
+  const { data, error, loading } = useRequest(logs);
 
   return (
     <>
