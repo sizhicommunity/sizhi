@@ -7,8 +7,6 @@ export default function defineDes({ define }: any): JSX.Element {
   }
   let publishList = define?.publish ?? [];
   let followList = define?.follow ?? [];
-  console.log('publishList', publishList);
-  console.log('followList', followList);
   return (
     <Descriptions title="Define" bordered column={2}>
       <Descriptions.Item label="Name">{define.name}</Descriptions.Item>
@@ -17,7 +15,7 @@ export default function defineDes({ define }: any): JSX.Element {
         {define.url}
       </Descriptions.Item>
       <Descriptions.Item label="Time">
-        {define.timestamp}({handleDate(define.timestamp)})
+        {new Date(define.timestamp).toISOString()}({handleDate(define.timestamp)})
       </Descriptions.Item>
       <Descriptions.Item label="Page">{define.page}</Descriptions.Item>
 
