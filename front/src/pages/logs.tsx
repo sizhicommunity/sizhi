@@ -1,6 +1,7 @@
 import { handleDate } from '@/components/date';
+import PageCard from '@/components/PageCard';
 import { useRequest } from 'ahooks';
-import { PageHeader, Table } from 'antd';
+import { PageHeader, Table, Card } from 'antd';
 
 import { Tag, Space } from 'antd';
 import { logs } from '../services/service';
@@ -36,7 +37,9 @@ export default function logsPage() {
   return (
     <>
       <PageHeader title="日志" subTitle="显示运行日志" />
-      <Table columns={columns} dataSource={data} size="small" />;
+      <PageCard>
+        <Table columns={columns} dataSource={data} size="small" />
+      </PageCard>
     </>
   );
 }

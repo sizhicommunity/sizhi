@@ -1,13 +1,14 @@
 import { Descriptions, List, Typography } from 'antd';
 import _ from 'lodash';
 import { handleDate } from './date';
-export default function defineDes({ define }:any): JSX.Element {
+export default function defineDes({ define }: any): JSX.Element {
   if (!define) {
     return <Typography.Text>define is null</Typography.Text>;
   }
-  let publishList = _(define?.publish[0].objects[0] ?? []).entries().value();
-  let followList = _(define?.follow[0].objects[0] ?? []).entries().value();
-  console.log(publishList)
+  let publishList = define?.publish ?? [];
+  let followList = define?.follow ?? [];
+  console.log('publishList', publishList);
+  console.log('followList', followList);
   return (
     <Descriptions title="Define" bordered column={2}>
       <Descriptions.Item label="Name">{define.name}</Descriptions.Item>
@@ -21,29 +22,31 @@ export default function defineDes({ define }:any): JSX.Element {
       <Descriptions.Item label="Page">{define.page}</Descriptions.Item>
 
       <Descriptions.Item label="Publish" span={2}>
-        <List
-          header={<div>Header</div>}
-          bordered
-          dataSource={publishList}
-          renderItem={(item) => (
-            <List.Item>
-              <Typography.Text mark>[ITEM]</Typography.Text> {item}
-            </List.Item>
-          )}
-        />
+        {publishList.map((item: any) => {
+          return (
+            <List
+              size="small"
+              header={
+                <Typography.Title level={5}>{item.category}</Typography.Title>
+              }
+              dataSource={item.objects}
+              renderItem={(i:any) => <List.Item>{i.url}</List.Item>}
+            />
+          );
+        })}
       </Descriptions.Item>
 
       <Descriptions.Item label="Follow" span={2}>
-        <List
-          header={<div>Header</div>}
-          bordered
-          dataSource={followList}
-          renderItem={(item) => (
-            <List.Item>
-              <Typography.Text mark>[ITEM]</Typography.Text> {item}
-            </List.Item>
-          )}
-        />
+        {followList.map((item: any) => {
+          return (
+            <List
+              size="small"
+              header={<Typography.Title level={5}>{item.category}</Typography.Title>}
+              dataSource={item.objects}
+              renderItem={(i:any) => <List.Item>{i.url}</List.Item>}
+            />
+          );
+        })}
       </Descriptions.Item>
     </Descriptions>
   );

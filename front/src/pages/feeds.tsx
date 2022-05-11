@@ -1,7 +1,9 @@
+import PageCard from '@/components/PageCard';
 import { useRequest } from 'ahooks';
 import { PageHeader, Table } from 'antd';
 
 import { Tag, Space } from 'antd';
+import React from 'react';
 import { feeds } from '../services/service';
 /**
  * defineUrl: string;
@@ -32,7 +34,9 @@ export default function feedsPage() {
   return (
     <>
       <PageHeader title="信息源" subTitle="从所有思之定文中获取的信息源" />
-      <Table columns={columns} dataSource={data} />;
+      <PageCard>
+        <Table columns={columns} dataSource={data} />
+      </PageCard>
     </>
   );
 }

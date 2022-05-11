@@ -4,6 +4,7 @@ import { Typography } from 'antd';
 import { useRequest } from 'ahooks';
 import { items } from '../services/service';
 import { handleDate } from '@/components/date';
+import PageCard from '@/components/PageCard';
 const { Text, Link } = Typography;
 
 const { Title } = Typography;
@@ -33,11 +34,13 @@ export default function rss() {
   return (
     <>
       <PageHeader title="Rss" subTitle="这里是你所取得的文章，仅作简单展示。" />
-      <Row style={{ marginLeft: 20, marginBottom: 20 }}>
+      <PageCard>
         <Text>{'为有更完整体验，建议使用你喜欢的标准RSS阅读器访问 - '}</Text>
         <Link href="rss://localhost:3000/rss">rss://localhost:3000/rss</Link>
-      </Row>
-      <Table columns={columns} dataSource={data} size="small" />;
+      </PageCard>
+      <PageCard>
+        <Table columns={columns} dataSource={data} size="small" />
+      </PageCard>
     </>
   );
 }
