@@ -3,11 +3,15 @@ import { PageHeader, Table } from 'antd';
 import { defines } from '../services/service';
 const columns = [
   {
-    title: 'Id',
-    dataIndex: 'id',
-    key: 'id',
+    title: 'Url',
+    dataIndex: 'url',
+    key: 'url',
   },
-  
+  {
+    title: 'Name',
+    dataIndex: 'name',
+    key: 'name',
+  }
 ];
 
 export default function DefinesPage() {

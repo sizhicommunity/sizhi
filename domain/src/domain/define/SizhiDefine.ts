@@ -6,14 +6,15 @@ import { getStringFromUrl, defaultProxyOptions, sSProxyOptions } from "../get";
 import { fromString } from "./FromString";
 
 import * as jsonHash from 'json-hash';
+import _ from "lodash";
 
 export interface SizhiDefine {
   id: string;
-  protocol: string;
+  version: string;
   name: string;
   url: string;
   hash: string;
-  page: string;
+  page?: string;
   timestamp: number;
   publish: CategorizedObjects<FeedDefine>[];
   follow?: CategorizedObjects<FeedDefine>[];
@@ -83,17 +84,31 @@ export function nominalDefine(origin: any): SizhiDefine {
   try {
     return {
       ...origin,
-      publish: nominalCategorized(origin.publish),
+      publish: (origin.publish && nominalCategorized(origin.publish))??[],
       follow: (origin.follow && nominalCategorized(origin.follow)) ?? [],
     };
   } catch (e) {
     throw new Error("bad define format - " + e.message);
   }
 }
+export function getMoreDefineFromDef(define: SizhiDefine): DefineInfo[] {
+  return _(
+    [...define.publish, ...(define.follow ?? [])]
+      .map((category) => category.objects.map(feedToDefineInfo))
+      .flat()
+  )
+    .compact()
+    .value();
+}
+export function feedToDefineInfo(feed: FeedDefine): DefineInfo{
+  const url = uri.parse(feed.url);
+  if (url.scheme === "sizhi") return {url:feed.url.replace('sizhi','https')};
+  return undefined;
+};
 export function getSourcesFromDefine(define: SizhiDefine): Source[] {
-  return [...define.publish, ...(define.follow ?? [])]
+  return _([...define.publish, ...(define.follow ?? [])]
     .map((category) => category.objects.map(feedToSource))
-    .flat();
+    .flat()).compact().value();
 }
 export function feedToSource(feed: FeedDefine): Source {
   const url = uri.parse(feed.url);

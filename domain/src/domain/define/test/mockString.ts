@@ -1,8 +1,7 @@
 export default `
 id: nielinjie
 name: nielinjie
-protocol: sizhi
-version: 0.1.0
+version: 'sizhi:0.1.0'
 hash: ''
 timestamp: 1627266592114
 url: sizhi:nielinjie
