@@ -1,6 +1,9 @@
 import { Descriptions, List, Typography } from 'antd';
 import _ from 'lodash';
 import { handleDate } from './date';
+
+
+
 export default function defineDes({ define }: any): JSX.Element {
   if (!define) {
     return <Typography.Text>define is null</Typography.Text>;
@@ -28,7 +31,8 @@ export default function defineDes({ define }: any): JSX.Element {
                 <Typography.Title level={5}>{item.category}</Typography.Title>
               }
               dataSource={item.objects}
-              renderItem={(i:any) => <List.Item>{i.url}</List.Item>}
+              renderItem={(i: any) => <List.Item>{i.url}</List.Item>}
+              rowKey="url"
             />
           );
         })}
@@ -42,6 +46,7 @@ export default function defineDes({ define }: any): JSX.Element {
               header={<Typography.Title level={5}>{item.category}</Typography.Title>}
               dataSource={item.objects}
               renderItem={(i:any) => <List.Item>{i.url}</List.Item>}
+              rowKey = 'url'
             />
           );
         })}

@@ -6,11 +6,7 @@ import { PageHeader, Table, Card } from 'antd';
 import { Tag, Space } from 'antd';
 import { logs } from '../services/service';
 const columns = [
-  {
-    title: 'Id',
-    dataIndex: 'id',
-    key: 'id',
-  },
+ 
   {
     title: 'TimeStamp',
     dataIndex: 'time',
@@ -24,6 +20,7 @@ const columns = [
     dataIndex: 'message',
     key: 'message',
   },
+  {title:'Context',dataIndex:'context',key:"context"},
   {
     title: 'Level',
     dataIndex: 'level',
@@ -38,7 +35,7 @@ export default function logsPage() {
     <>
       <PageHeader title="日志" subTitle="显示运行日志" />
       <PageCard>
-        <Table columns={columns} dataSource={data} size="small" />
+        <Table rowKey = "id" columns={columns} dataSource={data} size="small" />
       </PageCard>
     </>
   );

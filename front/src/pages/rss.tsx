@@ -39,7 +39,7 @@ export default function rss() {
         <Link href="rss://localhost:3000/rss">rss://localhost:3000/rss</Link>
       </PageCard>
       <PageCard>
-        <Table columns={columns} dataSource={data} size="small" />
+        <Table rowKey = "id" columns={columns} dataSource={data} size="small" />
       </PageCard>
     </>
   );

@@ -30,12 +30,12 @@ export async function getStringFromUrl(
       log.info(proxyOptions);
       log.info(url);
       const agent = tunnel.httpsOverHttp(defaultProxyOptions);
-      return (await axios.get(url, {
+      return (await axios.get(encodeURI(url), {
         httpsAgent: agent,
         proxy: false,
       })).data;
     } else {
-      return (await axios.get(url)).data;
+      return (await axios.get(encodeURI(url))).data;
     }
   } catch (e) {
     log.debug(e);

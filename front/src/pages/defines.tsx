@@ -1,3 +1,4 @@
+import DefineDescriptionUrl from '@/components/DefineDescriptionUrl';
 import PageCard from '@/components/PageCard';
 import { useRequest } from 'ahooks';
 import { PageHeader, Table } from 'antd';
@@ -23,8 +24,16 @@ export default function DefinesPage() {
     <>
       <PageHeader title="订阅定文" subTitle="显示你已订阅的思之文档" />
       <PageCard>
-      <Table columns={columns} dataSource={data} /></PageCard>
-
+        <Table rowKey={'url'}
+          columns={columns}
+          dataSource={data}
+          expandable={{
+            expandedRowRender: (record) => (
+             <DefineDescriptionUrl url ={record.url}/>
+            ),
+          }}
+        />
+      </PageCard>
     </>
   );
 }

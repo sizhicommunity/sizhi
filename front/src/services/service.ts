@@ -27,6 +27,14 @@ export async function defineUrl(url: string): Promise<any> {
     .then((res) => res.data);
 }
 
+
+export async function define(url:string):Promise<any> {
+    return axios
+      .get('/api/defines/' + encodeURIComponent(url))
+      .then((res) => res.data.define);
+
+}
+
 export async function defines(): Promise<any> {
   return axios.get('/api/defines').then((res) => res.data.defines);
 }

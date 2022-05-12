@@ -35,7 +35,7 @@ export default function feedsPage() {
     <>
       <PageHeader title="信息源" subTitle="从所有思之定文中获取的信息源" />
       <PageCard>
-        <Table columns={columns} dataSource={data} />
+        <Table rowKey='id' columns={columns} dataSource={data} />
       </PageCard>
     </>
   );

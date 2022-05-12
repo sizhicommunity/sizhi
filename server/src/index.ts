@@ -22,6 +22,16 @@ app.get("/logs", function (req, res) {
 app.get("/defines", function (req, res) {
   res.json({ defines: services.repository.defines }).status(200).send();
 });
+
+app.get("/defines/:url", function (req,res){
+  let url = decodeURIComponent( req.params.url)
+  let re = services.repository.defines.find(def=> def.url === url).value();
+  if(re){
+    res.json({define:re}).status(200).send();
+  }else{
+    res.status(404).send();
+  }
+})
 app.post("/defineUrls", function (req, res) {});
 
 app.get("/myDefine", function (req, res) {

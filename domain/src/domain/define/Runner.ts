@@ -27,7 +27,7 @@ export class Runner {
       this.lifeMinute += 1;
       if (this.lifeMinute % timerCount === 0) {
         log.debug("interval fired, update feeds");
-        this.rep.log("interval fired", "debug");
+        this.rep.log("interval fired", "debug","","");
         const defines: SizhiDefine[] = _.compact(
           (this.rep.defines.value() ?? []).concat(this.rep.getMyDefine())
         ) as SizhiDefine[];
@@ -55,9 +55,9 @@ export class Runner {
                 JSON.stringify(source.getFeedInfo())
               );
               this.rep.log(
-                "error processing source - " +
-                  JSON.stringify(source.getFeedInfo()),
-                "warn"
+                "error processing source" ,
+                "warn","source:"+source.getFeedInfo().url,
+                e.message
               );
             }
           })

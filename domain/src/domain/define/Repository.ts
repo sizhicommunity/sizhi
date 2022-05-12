@@ -21,13 +21,15 @@ export class Repository {
   get logs() {
     return this.low.db.get("logs");
   }
-  log(message: string, level: string) {
+  log(message: string, level: string, context: string, details: string) {
     const logs = this.logs.value() ?? [];
     logs.push({
       id: cuid(),
       time: new Date(),
       message,
       level,
+      context,
+      details,
     });
     this.db.set("logs", logs).write();
   }
@@ -36,7 +38,7 @@ export class Repository {
     this.low.db.set("myDefineUrl", url).write();
     //TODO, 考虑分开来做。
     await this.syncMyDefine(url);
-    this.log("set myDefineUrl - " + url, "info");
+    this.log("set myDefineUrl - " + url, "info", "myDefine:" + url, "");
   }
 
   async syncMyDefine(url: string) {
@@ -68,11 +70,16 @@ export class Repository {
         let define = await loadFromUrl(url);
         define.url = url;
         defines.push(define);
-        this.log("add define - " + url, "info");
+        this.log("add define - " + url, "info", "define:" + url, "");
         this.db.set("defines", defines).write();
       } catch (err) {
         log.warn("err when add define - " + url);
-        this.log("err when add define - " + url, "warn");
+        this.log(
+          "err when add define - " + url,
+          "warn",
+          "define:" + url,
+          err.message
+        );
       }
     }
   }
