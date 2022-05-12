@@ -36,7 +36,7 @@ export default function rss() {
       <PageHeader title="Rss" subTitle="这里是你所取得的文章，仅作简单展示。" />
       <PageCard>
         <Text>{'为有更完整体验，建议使用你喜欢的标准RSS阅读器访问 - '}</Text>
-        <Link href="rss://localhost:3000/rss">rss://localhost:3000/rss</Link>
+        <Link href="http://localhost:3000/rss">http://localhost:3000/rss</Link>
       </PageCard>
       <PageCard>
         <Table rowKey = "id" columns={columns} dataSource={data} size="small" />
