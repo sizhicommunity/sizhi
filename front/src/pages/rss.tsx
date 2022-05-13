@@ -21,6 +21,8 @@ const columns = [
     render: (time: string) => {
       return <>{handleDate(Date.parse(time))}</>;
     },
+    defaultSortOrder: 'descend',
+    sorter: (a: any, b: any) => a.date.localeCompare(b.date),
   },
   {
     title: 'Title',
@@ -39,7 +41,7 @@ export default function rss() {
         <Link href="http://localhost:3000/rss">http://localhost:3000/rss</Link>
       </PageCard>
       <PageCard>
-        <Table rowKey = "id" columns={columns} dataSource={data} size="small" />
+        <Table rowKey="id" columns={columns} dataSource={data} size="small" />
       </PageCard>
     </>
   );
