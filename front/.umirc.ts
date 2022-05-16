@@ -4,6 +4,8 @@ export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
   },
+  publicPath: process.env.NODE_ENV === 'production' ?'/www/':'/',
+  base:'www',
   proxy: {
     '/api': {
       target: 'http://localhost:3000',
