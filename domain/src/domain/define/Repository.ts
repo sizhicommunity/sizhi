@@ -3,8 +3,8 @@ import { fileAdapter } from "@quick-qui/data-provider/dist/lowdbDP/fileDP";
 import { log } from "../util";
 
 import cuid from "cuid";
-import { loadFromUrl, SizhiDefine } from "./SizhiDefine";
-
+import { loadFromUrl } from "./SizhiDefine";
+//TODO 考虑迁移到nedb，可能当数据太多的时候。
 export class Repository {
   low;
 

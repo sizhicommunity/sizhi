@@ -1,9 +1,8 @@
 import { handleDate } from '@/components/date';
 import PageCard from '@/components/PageCard';
 import { useRequest } from 'ahooks';
-import { PageHeader, Table, Card } from 'antd';
+import { PageHeader, Table } from 'antd';
 
-import { Tag, Space } from 'antd';
 import { logs } from '../services/service';
 const columns = [
   {
