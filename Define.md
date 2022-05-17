@@ -31,8 +31,8 @@ follow: # 用户follow的部分。
 4. 内容协议有多种，只要相关的客户端支持。目前都以rss扩展而来，比如。
    - `rsshub` - rsshub地址。
    - `sizhi` - 思之定义文档地址。
-   - `https` `http` -  一般的rss/atom内容
-   - `opml` - 以OPML形式存在的rss/atom
+   - `https` `http` -  一般的rss/atom内容。
+   - `opml` - 以OPML形式存在的rss/atom集合。
 
 
 

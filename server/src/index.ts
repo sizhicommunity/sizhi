@@ -1,6 +1,7 @@
 import express, { response } from "express";
 import { ContentItem, Repository, Runner } from "@sizhi/domain";
 import { feeds } from "./feeds";
+import path from "path";
 export let services: {
   app?: express.Application;
   repository?: Repository;
@@ -11,6 +12,10 @@ services.app = app;
 app.use(express.json());
 
 
+app.use("/www", express.static(path.join(__dirname,'..',"www")));
+app.get('/ping',function(req,res){
+  res.status(200).send("pong")
+})
 app.get("/timeline/items", function (req, res) {
   res.json({ items: services.runner.timeLine.getItems() }).status(200);
 });

@@ -43,6 +43,7 @@ export class Repository {
 
   async syncMyDefine(url: string) {
     //TODO 考虑版本、缓存等问题。
+    //如果有更新的版本需要刷新内容。
     // const existed = this.low.db.get("myDefine").value();
     // if (!existed) {
     //   if (existed.url === url) {
@@ -50,6 +51,7 @@ export class Repository {
     //     //overwrite
     //   }
     // }
+    //TODO 其他define同样要刷新。
     let define = await loadFromUrl(url);
     //TODO 考虑url不匹配问题。
     define.url = url;
